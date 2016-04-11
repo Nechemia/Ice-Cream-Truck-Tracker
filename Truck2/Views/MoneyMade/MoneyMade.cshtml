@@ -1,0 +1,153 @@
+﻿@using Truck2.Models
+@model RoutesEvents
+
+<button class="btn btn-success" id="seeRoutes" style="margin-top: 20px">Everyday Routes</button>
+<button class="btn btn-success" id="seeEvents" style="margin-top: 20px">Events</button>
+<button class="btn btn-success" id="addEvent" style="margin-top: 20px">Add Event</button>
+<button class="btn btn-success" id="addRoute" style="margin-top: 20px">Add Route</button>
+
+
+
+    <table class="table  table-bordered table-hover table-striped events" id="eventTable" style="margin-top: 10px">
+
+        <tr>
+            <th>Name</th>
+            <th>Amount Of People</th>
+            <th>Event Type</th>
+            <th>Amount Made</th>
+            <th>Product Type</th>
+            <th>Time Started</th>
+            <th>Time Ended</th>
+            <th>Driver</th>
+            <th>Date</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var e in Model.Events)
+        {
+            <tr>
+                <td>@e.Name</td>
+                <td>@e.AmountOfPeople</td>
+                <td>@e.EventType</td>
+                <td>@e.AmountMade</td>
+                <td>@e.ProductType</td>
+                <td>@e.TimeStarted</td>
+                <td>@e.TimeEnded</td>
+                <td>@e.Driver.Name</td>
+                <td>@e.Date</td>
+                <td><button class="btn btn-primary editEvent" data-id="@e.Id">Edit</button></td>
+                <td><button class="btn btn-danger deleteEvent" data-id="@e.Id">Delete</button></td>
+            </tr>
+        }
+
+    </table>
+    <div class="events" >Total Event Amount Is @Model.EventsAmount</div>
+
+
+<table class="table  table-bordered table-hover table-striped routes" id="routeTable" style="margin-top: 10px">
+
+    <tr>
+        
+        <th>Date</th>
+        <th>Amount Made</th>
+        <th>Driver</th>
+        <th>Time Started</th>
+        <th>Time Ended</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+    </tr>
+    @foreach (var r in Model.Routes)
+    {
+        <tr>
+            
+            <td>@r.Date</td>
+            <td>@r.AmountMade</td>
+            <td>@r.Driver.Name</td>
+            <td>@r.TimeStarted</td>
+            <td>@r.TimeEnded</td>
+            <td><button class="btn btn-primary editRoute" data-id="@r.Id">Edit</button></td>
+            <td><button class="btn btn-danger deleteRoute" data-id="@r.Id">Delete</button></td>
+        </tr>
+    }
+
+</table>
+<div class="routes">Total Route Amount Is  @Model.RoutesAmount</div>
+
+<div class="modal fade" id="addRouteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add Route</h4>
+            </div>
+            <div class="modal-body">
+               
+                Date:* <input type="text" class="form-control route" placeholder="Date" name="date" id="dateRoute"><br>
+                Amount Made:* <input type="text" class="form-control route" placeholder="Amount Made" name="amountMade" id="amountMadeRoute"><br>
+                Driver:* <select class="form-control route" name="driver" id="driverRoute">
+    <option value="Yakov">Yakov</option>
+    <option value="Nechemia">Nechemia</option>
+    <option value="Other">Other</option>
+</select>
+                Time Started: <input type="time" class="form-control time" placeholder="Time Started" name="Time Started" id="timeStartedRoute"><br>
+                Time Ended: <input type="time" class="form-control time" placeholder=" Time Ended" name="Time Ended" id="timeEndedRoute"><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="saveRoute" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+
+
+<div class="modal fade" id="addEventModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add Event</h4>
+            </div>
+            <div class="modal-body">
+                Name:* <input type="text" class="form-control event" form-control"" placeholder="Name" name="name" id="nameEvent"><br>
+                Amount Of People: <input type="text" class="form-control event" placeholder="Amount Of People" name="amountOfPeople" id="amountOfPeopleEvent"><br>
+                Amount Made:* <input type="text" class="form-control event" placeholder="Amount Made" name="Amount Made" id="amountMadeEvent"><br>
+                Product Type:* <select class="form-control event" name="productType" id="productTypeEvent">
+                                   <option value="Soft Ice Cream">Soft Ice Cream</option>
+                                   <option value="Ices">Ices</option>
+                                   <option value="Novelties">Ice Cream Novelties</option>
+</select>
+                Time Started: <input type="time" class="form-control event" placeholder="Time Started" name="timeStarted" id="timeStartedEvent"><br>
+                Time Ended: <input type="time" class="form-control event" placeholder="Time Ended" name="timeEnded" id="timeEndedEvent"><br>
+                Driver:* <select class="form-control event" name="driver" id="driverEvent">
+    <option value="Yakov">Yakov</option>
+    <option value="Nechemia">Nechemia</option>
+    <option value="Other">Other</option>
+</select>
+                Event Type:* <select class="form-control" name="event Type" id="eventType">
+                                <option value="Camp">Camp</option>
+                                <option value="School">School</option>
+                                <option value="Birthday">Birthday</option>
+                                <option value="Other">Other</option>
+                </select>
+                Date: <input type="text" class="form-control event" placeholder="Date" name="date" id="dateEvent"><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveEvent">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+@section Scripts
+{
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/MoneyMade.js"></script>
+}

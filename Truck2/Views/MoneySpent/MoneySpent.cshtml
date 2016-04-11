@@ -1,0 +1,79 @@
+﻿@using Truck2.Models;
+@model ExpenseTotal
+
+<button class="btn btn-success" id="addExpense" style="margin-top: 20px">Add Expense</button>
+
+
+
+
+<table class="table  table-bordered table-hover table-striped expenses" id="expenseTable" style="margin-top: 10px">
+
+    <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var e in Model.Expenses)
+    {
+        <tr>
+            <td>@e.Name</td>
+            <td>@e.Date</td>
+            <td>@e.Amount</td>
+            <td><button class="btn btn-primary editEvent" data-id="@e.Id">Edit</button></td>
+            <td><button class="btn btn-danger deleteEvent" data-id="@e.Id">Delete</button></td>
+        </tr>
+    }
+
+</table>
+<div class="events">Total Expense Amount Is @Model.TotalExpenseAmount</div>
+
+
+
+<div class="modal fade" id="addExpenseModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add Expense</h4>
+            </div>
+            <div class="modal-body">
+
+                
+                Name:* <select class="form-control expense" onchange='checkvalue(this.value)'>
+                            <option value="Kliens">Kliens</option>
+                            <option value="Credit Card Bill">Credit Card Bill</option>
+                            <option value="Repairs">Repairs</option>
+                            <option value="Licensing Expenses">Licensing Expenses</option>
+                            <option value="Driver">Driver</option>
+                            <option value="Other">Other</option>
+                        </select>
+                     <input type="text" name="color" id="name" style='display:none' />
+                @*Other:* <input type="text" class="form-control expense" placeholder="Other" name="other" id="other"><br>*@
+                Amount:* <input type="text" class="form-control expense" placeholder="amount" name="amount" id="amount"><br>
+                Date:* <input type="text" class="form-control expense" placeholder="Date" name="date" id="date"><br>
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="saveExpense" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+@section Scripts
+{
+     <script src="/Scripts/bootstrap.min.js"></script>
+     <script src="/Scripts/MonetSpent.js"></script>
+}
+
+
+
+
+
+
+
+

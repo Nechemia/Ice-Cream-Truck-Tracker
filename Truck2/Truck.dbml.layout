@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.25, 8.5" name="Truck">
+  <DataContextMoniker Name="/TruckDataContext" />
+  <nestedChildShapes>
+    <classShape Id="529952ab-7adf-4fae-860b-8022e927ceed" absoluteBounds="9.5, 0.875, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/TruckDataContext/AddStock" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8273bdff-b8fa-412d-8821-9dd6d87ad8b3" absoluteBounds="9.515, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="48d361a2-54ca-4d8a-964d-d9f9aef69e4e" absoluteBounds="6.75, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TruckDataContext/BillPayed" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2047d72e-1724-42ac-845f-1484beb9232a" absoluteBounds="6.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dc1e3f6d-783f-4d5f-9e99-9f7a61b81631" absoluteBounds="6.75, 0.875, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/TruckDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fdb0b207-fb3a-4b86-abd2-b080af9e143f" absoluteBounds="6.765, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.75 : 1.56814697265625); (9.5 : 1.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TruckDataContext/Product/Product_AddStock" />
+      <nodes>
+        <classShapeMoniker Id="dc1e3f6d-783f-4d5f-9e99-9f7a61b81631" />
+        <classShapeMoniker Id="529952ab-7adf-4fae-860b-8022e927ceed" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="eb9ba484-b4ff-4750-9d47-27dde4ed6e1c" absoluteBounds="0.75, 1.5, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/TruckDataContext/Driver" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b63f9e6-50e1-4709-89b6-11edb6a22100" absoluteBounds="0.765, 1.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="63ec6c9c-e694-46af-9e08-31c28b24f3be" absoluteBounds="10, 3.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/TruckDataContext/Route1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aa8c877c-dd50-44c0-a8e5-1478b18d9580" absoluteBounds="10.015, 3.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 2.8862939453125); (1.75 : 3.25); (2.22916666666667 : 3.25 : JumpStart); (2.39583333333333 : 3.25 : JumpEnd); (3.625 : 3.25); (3.625 : 3.7131982421875); (6.5 : 3.7131982421875); (6.5 : 3.5); (9.625 : 3.5); (9.625 : 4.10659912109375); (10 : 4.10659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TruckDataContext/Driver/Driver_Route1" />
+      <nodes>
+        <classShapeMoniker Id="eb9ba484-b4ff-4750-9d47-27dde4ed6e1c" />
+        <classShapeMoniker Id="63ec6c9c-e694-46af-9e08-31c28b24f3be" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9946f433-11c4-4dc1-85e4-020c8c288b41" absoluteBounds="3.875, 1.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/TruckDataContext/Route" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dc73ff06-8898-43eb-ae30-02b5ea9228b8" absoluteBounds="3.89, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.19314697265625); (3.875 : 2.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TruckDataContext/Driver/Driver_Route" />
+      <nodes>
+        <classShapeMoniker Id="eb9ba484-b4ff-4750-9d47-27dde4ed6e1c" />
+        <classShapeMoniker Id="9946f433-11c4-4dc1-85e4-020c8c288b41" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6c9c32c6-3619-4edb-9ea8-25414d544578" absoluteBounds="1.5, 3.5, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/TruckDataContext/Event" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df5ec3a3-26f3-4015-b421-d388b027645c" absoluteBounds="1.5150000000000001, 3.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.3125 : 2.8862939453125); (2.3125 : 3.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TruckDataContext/Driver/Driver_Event" />
+      <nodes>
+        <classShapeMoniker Id="eb9ba484-b4ff-4750-9d47-27dde4ed6e1c" />
+        <classShapeMoniker Id="6c9c32c6-3619-4edb-9ea8-25414d544578" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="51e17d14-b19d-4947-bd99-04bbb3410882" absoluteBounds="4.25, 4.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/TruckDataContext/Expense" />
+      <nestedChildShapes>
+        <elementListCompartment Id="82b62727-ea1b-4b9d-8999-65286a336048" absoluteBounds="4.265, 5.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

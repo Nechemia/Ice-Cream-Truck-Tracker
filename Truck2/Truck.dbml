@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Truck" Class="TruckDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=Truck;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TruckConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AddStock" Member="AddStocks">
+    <Type Name="AddStock">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AveragePrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="Product_AddStock" Member="Product" ThisKey="ProductId" OtherKey="Id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BillPayed" Member="BillPayeds">
+    <Type Name="BillPayed">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AveragePrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="Product_AddStock" Member="AddStocks" ThisKey="Id" OtherKey="ProductId" Type="AddStock" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Driver" Member="Drivers">
+    <Type Name="Driver">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SalaryPerHour" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Driver_Route1" Member="Route1s" ThisKey="Id" OtherKey="DriverId" Type="Route1" />
+      <Association Name="Driver_Route" Member="Routes" ThisKey="Id" OtherKey="DriverId" Type="Route" />
+      <Association Name="Driver_Event" Member="Events" ThisKey="Id" OtherKey="DriverId" Type="Event" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Route" Member="Route1s">
+    <Type Name="Route1">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="AmountMade" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStarted" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="TimeEnded" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DriverId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Driver_Route1" Member="Driver" ThisKey="DriverId" OtherKey="Id" Type="Driver" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Route" Member="Routes">
+    <Type Name="Route">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="AmountMade" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStarted" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="TimeEnded" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DriverId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Driver_Route" Member="Driver" ThisKey="DriverId" OtherKey="Id" Type="Driver" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Event" Member="Events">
+    <Type Name="Event">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AmountOfPeople" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AmountMade" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ProductType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStarted" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="TimeEnded" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DriverId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EventType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Driver_Event" Member="Driver" ThisKey="DriverId" OtherKey="Id" Type="Driver" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Expense" Member="Expenses">
+    <Type Name="Expense">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Other" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
