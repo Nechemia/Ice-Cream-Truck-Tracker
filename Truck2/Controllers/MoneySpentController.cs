@@ -17,33 +17,34 @@ namespace Truck2.Controllers
             et.TotalExpenseAmount = ms.GetTotalExpenses();
             return View(et);
         }
-        //[HttpPost]
-        //public void AddRoute(decimal amount, string ? other, string name, DateTime date)
-        //{
-        //    MoneySpentManager ms = new MoneySpentManager();
-        //    Expense e = new Expense();
-        //    e.Amount = amount;
-        //    e.Date = date;
-        //    e.Name = name;
-        //    e.Other = other;
+        [HttpPost]
+        public void AddExpense(decimal amount, string name, DateTime date)
+        {
+            MoneySpentManager ms = new MoneySpentManager();
+            Expense e = new Expense();
+            e.Amount = amount;
+            e.Date = date;
+            e.Name = name;
+            //e.Other = other;
+            ms.AddExpense(e);
 
-        //    ms.AddExpense(e);
 
-
-        //}
-        //public void UpdateRoute(int id, decimal amountMade, TimeSpan? timeStarted, TimeSpan? timeEnded, string driverName, DateTime date)
-        //{
-        //    MoneyMadeManager mm = new MoneyMadeManager();
-        //    Route r = new Route();
-        //    r.Id = id;
-        //    r.AmountMade = amountMade;
-        //    r.TimeStarted = timeStarted;
-        //    r.TimeEnded = timeEnded;
-        //    var driver = mm.GetDriverByName(driverName);
-        //    r.DriverId = driver.Id;
-        //    r.Date = date;
-        //    mm.UpdateRoute(r);
-        //}
+        }
+        public void UpdateExpense(int id, decimal amount, string name, DateTime date)
+        {
+            MoneySpentManager ms = new MoneySpentManager();
+            Expense e = new Expense();
+            e.Id = id;
+            e.Amount = amount;
+            e.Date = date;
+            e.Name = name;
+            ms.UpdateExpense(e);
+        }
+        public void DeleteExpense(int id)
+        {
+            MoneySpentManager ms = new MoneySpentManager();
+            ms.DeleteExpense(id);
+        }
 
     }
 }

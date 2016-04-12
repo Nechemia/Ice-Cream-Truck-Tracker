@@ -21,8 +21,8 @@
             <td>@e.Name</td>
             <td>@e.Date</td>
             <td>@e.Amount</td>
-            <td><button class="btn btn-primary editEvent" data-id="@e.Id">Edit</button></td>
-            <td><button class="btn btn-danger deleteEvent" data-id="@e.Id">Delete</button></td>
+            <td><button class="btn btn-primary editExpense" data-id="@e.Id">Edit</button></td>
+            <td><button class="btn btn-danger deleteExpense" data-id="@e.Id">Delete</button></td>
         </tr>
     }
 
@@ -41,7 +41,7 @@
             <div class="modal-body">
 
                 
-                Name:* <select class="form-control expense" onchange='checkvalue(this.value)'>
+                Name:* <select class="form-control expense" id="name">
                             <option value="Kliens">Kliens</option>
                             <option value="Credit Card Bill">Credit Card Bill</option>
                             <option value="Repairs">Repairs</option>
@@ -49,10 +49,10 @@
                             <option value="Driver">Driver</option>
                             <option value="Other">Other</option>
                         </select>
-                     <input type="text" name="color" id="name" style='display:none' />
-                @*Other:* <input type="text" class="form-control expense" placeholder="Other" name="other" id="other"><br>*@
-                Amount:* <input type="text" class="form-control expense" placeholder="amount" name="amount" id="amount"><br>
+               <input type="text" class="form-control expense" placeholder="Enter The Name Of Expense" name="other" id="other"><br>
                 Date:* <input type="text" class="form-control expense" placeholder="Date" name="date" id="date"><br>
+                Amount:* <input type="text" class="form-control expense" placeholder="amount" name="amount" id="amount"><br>
+                
                
             </div>
             <div class="modal-footer">

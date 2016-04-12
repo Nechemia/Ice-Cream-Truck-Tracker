@@ -53,7 +53,7 @@ namespace Truck2.Models
 
             }
         }
-        public void UpdateRoute(Expense e)
+        public void UpdateExpense(Expense e)
         {
             using (var context = new TruckDataContext(@"Data Source=.\sqlexpress;Initial Catalog=Truck;Integrated Security=True"))
             {

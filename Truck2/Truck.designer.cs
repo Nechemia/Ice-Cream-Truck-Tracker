@@ -1547,8 +1547,6 @@ namespace Truck2
 		
 		private decimal _Amount;
 		
-		private string _Other;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1561,8 +1559,6 @@ namespace Truck2
     partial void OnDateChanged();
     partial void OnAmountChanging(decimal value);
     partial void OnAmountChanged();
-    partial void OnOtherChanging(string value);
-    partial void OnOtherChanged();
     #endregion
 		
 		public Expense()
@@ -1646,26 +1642,6 @@ namespace Truck2
 					this._Amount = value;
 					this.SendPropertyChanged("Amount");
 					this.OnAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Other", DbType="VarChar(100)")]
-		public string Other
-		{
-			get
-			{
-				return this._Other;
-			}
-			set
-			{
-				if ((this._Other != value))
-				{
-					this.OnOtherChanging(value);
-					this.SendPropertyChanging();
-					this._Other = value;
-					this.SendPropertyChanged("Other");
-					this.OnOtherChanged();
 				}
 			}
 		}
