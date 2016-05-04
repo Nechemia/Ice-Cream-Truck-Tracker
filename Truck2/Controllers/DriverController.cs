@@ -13,10 +13,11 @@ namespace Truck2.Controllers
 
         public ActionResult Driver()
         {
-            DriverManager dm = new DriverManager();
-            string d = "01/06/2015";
-            int k = dm.GetAmountOfMinutesOfDriverSinceLastPayment(d);
-            return View(k);
+            //DriverManager dm = new DriverManager();
+            //string d = "01/06/2015";
+            //int k = dm.GetAmountOfMinutesOfDriverSinceLastPayment(d);
+            //return View(k);
+            return View();
         }
 
     }

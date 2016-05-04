@@ -1,0 +1,80 @@
+﻿@using Truck2.Models;
+@model ProductStock
+
+<button class="btn btn-success" id="addStock" style="margin-top: 20px">Add Stock</button>
+
+
+
+
+<table class="table  table-bordered table-hover table-striped expenses" id="expenseTable" style="margin-top: 10px">
+
+    <tr>
+        <th>Product</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Average Price</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var s in Model.StockList)
+    {
+        <tr>
+            <td>@s.Product.Name</td>
+            <td>@s.Amount</td>
+            <td>@s.Date</td>
+            <td>@s.Product.AveragePrice</td>
+            <td><button class="btn btn-primary editStock" data-id="@s.Id">Edit</button></td>
+            <td><button class="btn btn-danger deleteStock" data-id="@s.Id">Delete</button></td>
+        </tr>
+    }
+
+</table>
+<div class="stock">Total Spent On Ices Is @Model.TotalSpentOnIces</div>
+<div class="stock">Total Spent On Ice Cream Is @Model.TotalSpentOnIceCream</div>
+<div class="stock">WHen All Is Sold Should Bring In @Model.TotalAmountShouldHaveMade</div>
+
+
+
+<div class="modal fade" id="addStockModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add Stock</h4>
+            </div>
+            <div class="modal-body">
+
+
+                Product:* <select class="form-control expense" id="product">
+                    <option value="Kliens">Soft Ice Cream</option>
+                    <option value="Credit Card Bill">Twin Pops</option>
+                    <option value="Repairs">Luigi Cups</option>
+                       </select>
+                Amount:* <input type="text" class="form-control expense" placeholder="amount" name="amount" id="amount"><br>
+                Date:* <input type="text" class="form-control expense" placeholder="Date" name="date" id="date"><br>
+               
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="saveStock" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@section Scripts
+{
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/AddStock.js"></script>
+}
+
+
+
+
+
+
+
+
+
+

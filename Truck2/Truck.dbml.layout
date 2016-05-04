@@ -2,31 +2,12 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.25, 8.5" name="Truck">
   <DataContextMoniker Name="/TruckDataContext" />
   <nestedChildShapes>
-    <classShape Id="529952ab-7adf-4fae-860b-8022e927ceed" absoluteBounds="9.5, 0.875, 2, 1.3862939453125003">
-      <DataClassMoniker Name="/TruckDataContext/AddStock" />
-      <nestedChildShapes>
-        <elementListCompartment Id="8273bdff-b8fa-412d-8821-9dd6d87ad8b3" absoluteBounds="9.515, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="48d361a2-54ca-4d8a-964d-d9f9aef69e4e" absoluteBounds="6.75, 3.75, 2, 1.5785953776041666">
+    <classShape Id="48d361a2-54ca-4d8a-964d-d9f9aef69e4e" absoluteBounds="7, 4.125, 2, 1.5785953776041666">
       <DataClassMoniker Name="/TruckDataContext/BillPayed" />
       <nestedChildShapes>
-        <elementListCompartment Id="2047d72e-1724-42ac-845f-1484beb9232a" absoluteBounds="6.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="2047d72e-1724-42ac-845f-1484beb9232a" absoluteBounds="7.015, 4.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="dc1e3f6d-783f-4d5f-9e99-9f7a61b81631" absoluteBounds="6.75, 0.875, 2, 1.3862939453125003">
-      <DataClassMoniker Name="/TruckDataContext/Product" />
-      <nestedChildShapes>
-        <elementListCompartment Id="fdb0b207-fb3a-4b86-abd2-b080af9e143f" absoluteBounds="6.765, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(8.75 : 1.56814697265625); (9.5 : 1.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TruckDataContext/Product/Product_AddStock" />
-      <nodes>
-        <classShapeMoniker Id="dc1e3f6d-783f-4d5f-9e99-9f7a61b81631" />
-        <classShapeMoniker Id="529952ab-7adf-4fae-860b-8022e927ceed" />
-      </nodes>
-    </associationConnector>
     <classShape Id="eb9ba484-b4ff-4750-9d47-27dde4ed6e1c" absoluteBounds="0.75, 1.5, 2, 1.3862939453125003">
       <DataClassMoniker Name="/TruckDataContext/Driver" />
       <nestedChildShapes>
@@ -39,7 +20,7 @@
         <elementListCompartment Id="aa8c877c-dd50-44c0-a8e5-1478b18d9580" absoluteBounds="10.015, 3.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.75 : 2.8862939453125); (1.75 : 3.25); (3.625 : 3.25); (3.625 : 3.7131982421875); (6.5 : 3.7131982421875); (6.5 : 3.5); (9.625 : 3.5); (9.625 : 4.10659912109375); (10 : 4.10659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.75 : 2.8862939453125); (1.75 : 3.4375); (3.5625 : 3.4375); (3.5625 : 4.0625); (9.90625 : 4.0625); (9.90625 : 4.52089730989583); (10 : 4.52089730989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TruckDataContext/Driver/Driver_Route1" />
       <nodes>
         <classShapeMoniker Id="eb9ba484-b4ff-4750-9d47-27dde4ed6e1c" />
@@ -78,5 +59,24 @@
         <elementListCompartment Id="cc7ffd0f-2bc9-4b6e-ad7a-136c380180a2" absoluteBounds="4.64, 4.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="d099c6ea-205f-4f4b-8c0b-a875dbb000d1" absoluteBounds="8, 2.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TruckDataContext/AddStock" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba502dfd-f1c7-45b5-a270-85478dec6724" absoluteBounds="8.015, 2.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cd7bb1f8-110a-4d72-9e37-88bc433d7e9d" absoluteBounds="6.5, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TruckDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c6f3d1f-3279-4081-b12a-9a99cf97eb42" absoluteBounds="6.515, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 2.07859537760417); (8.25 : 2.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TruckDataContext/Product/Product_AddStock" />
+      <nodes>
+        <classShapeMoniker Id="cd7bb1f8-110a-4d72-9e37-88bc433d7e9d" />
+        <classShapeMoniker Id="d099c6ea-205f-4f4b-8c0b-a875dbb000d1" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
