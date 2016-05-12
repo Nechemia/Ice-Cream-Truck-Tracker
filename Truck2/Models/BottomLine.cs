@@ -12,5 +12,7 @@ namespace Truck2.Models
         public decimal TotalExpenses { get; set; }
         public decimal FinalAmount { get; set; }
         public decimal ProfitPercentage { get; set; }
+        public decimal TotalSpentOnInventory { get; set; }
+        public decimal ProfitPercentageFromAmountSpentOnInventory { get; set; }
     }
 }

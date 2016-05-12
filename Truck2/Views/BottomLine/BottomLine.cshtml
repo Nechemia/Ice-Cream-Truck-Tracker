@@ -1,8 +1,33 @@
 ﻿@using Truck2.Models
 @model BottomLine
 
-<div>Total event made Is @string.Format("{0:C}", @Model.EventTotal)</div>
-<div>Total route made Is @string.Format("{0:C}", @Model.RouteTotal)</div>
-<div>Total Expenses So Far Are @string.Format("{0:C}", @Model.TotalExpenses)</div>
-<div>Grand Total Is @string.Format("{0:C}", @Model.FinalAmount)</div> 
-<div>That's @String.Format("{0:0.##}", @Model.ProfitPercentage)% Profit Margin From Total Expenses!</div>
+
+<table class="table  table-bordered table-hover table-striped routes" id="routeTable" style="margin-top: 10px">
+
+    <tr>
+
+        <th class="text-center">Total Event Made</th>
+        <th class="text-center">Total route made</th>
+        <th class="text-center">Total Expenses So Far</th>
+        <th class="text-center">Grand Total Is</th>
+        <th class="text-center">Percentage</th>
+        <th class="text-center">% Based On Inventory</th>
+        
+
+    </tr>
+    
+        <tr>
+
+            <td class="text-center">@string.Format("{0:C}", @Model.EventTotal)</td>
+            <td class="text-center">@string.Format("{0:C}", @Model.RouteTotal)</td>
+            <td class="text-center">@string.Format("{0:C}", @Model.TotalExpenses)</td>
+            <td class="text-center">@string.Format("{0:C}", @Model.FinalAmount)</td>
+            <td class="text-center">@String.Format("{0:0.##}", @Model.ProfitPercentage)%</td>
+            <td class="text-center">@String.Format("{0:0.##}", @Model.ProfitPercentageFromAmountSpentOnInventory)%</td>
+        </tr>
+    
+
+</table>
+
+
+

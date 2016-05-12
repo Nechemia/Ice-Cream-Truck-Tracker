@@ -138,6 +138,7 @@
     </Compile>
     <Compile Include="Models\AddStockManager.cs" />
     <Compile Include="Models\BottomLine.cs" />
+    <Compile Include="Models\BottomLineManager.cs" />
     <Compile Include="Models\DriverManager.cs" />
     <Compile Include="Models\ExpenseTotal.cs" />
     <Compile Include="Models\MoneyMadeManager.cs" />

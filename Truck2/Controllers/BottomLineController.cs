@@ -27,6 +27,10 @@ namespace Truck2.Controllers
             bl.FinalAmount = (bl.EventTotal + bl.RouteTotal) - bl.TotalExpenses;
             bl.ProfitPercentage = bl.FinalAmount / (bl.EventTotal + bl.RouteTotal) * 100;
 
+            BottomLineManager blm = new BottomLineManager();
+            bl.TotalSpentOnInventory = blm.GetTotalSpentOnInventory("Ices", "Kliens", "Paper Goods", "Cones", "Toppings");
+            var amountWithoutInventory = (bl.EventTotal + bl.RouteTotal) - blm.GetTotalSpentOnInventory("Ices", "Kliens", "Paper Goods", "Cones", "Toppings");
+            bl.ProfitPercentageFromAmountSpentOnInventory = amountWithoutInventory / (bl.EventTotal + bl.RouteTotal) * 100;
             return View(bl);
         }
 
