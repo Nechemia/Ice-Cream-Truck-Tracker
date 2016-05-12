@@ -9,25 +9,25 @@
 <table class="table  table-bordered table-hover table-striped expenses" id="expenseTable" style="margin-top: 10px">
 
     <tr>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Amount</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Date</th>
+        <th class="text-center">Amount</th>
+        <th class="text-center">Edit</th>
+        <th class="text-center">Delete</th>
     </tr>
     @foreach (var e in Model.Expenses)
     {
         <tr>
-            <td>@e.Name</td>
-            <td>@e.Date</td>
-            <td>@e.Amount</td>
-            <td><button class="btn btn-primary editExpense" data-id="@e.Id">Edit</button></td>
-            <td><button class="btn btn-danger deleteExpense" data-id="@e.Id">Delete</button></td>
+            <td class="text-center">@e.Name</td>
+            <td class="text-center">@e.Date.ToShortDateString()</td>
+            <td class="text-center">@string.Format("{0:C}", @e.Amount)</td>
+            <td class="text-center"><button class="btn btn-primary editExpense" data-id="@e.Id">Edit</button></td>
+            <td class="text-center"><button class="btn btn-danger deleteExpense" data-id="@e.Id">Delete</button></td>
         </tr>
     }
 
 </table>
-<div class="events">Total Expense Amount Is @Model.TotalExpenseAmount</div>
+<div class="events text-center">Total Expense Amount Is @string.Format("{0:C}", @Model.TotalExpenseAmount)</div>
 
 
 
@@ -47,7 +47,10 @@
                             <option value="Repairs">Repairs</option>
                             <option value="Licensing Expenses">Licensing Expenses</option>
                             <option value="Driver">Driver</option>
+                           <option value="Parking">Parking</option>
+                           <option value="Ices">Ices</option>
                             <option value="Other">Other</option>
+                @*if add stuff here have to add in jquery by the "other"" logic*@
                         </select>
                <input type="text" class="form-control expense" placeholder="Enter The Name Of Expense" name="other" id="other"><br>
                 Date:* <input type="text" class="form-control expense" placeholder="Date" name="date" id="date"><br>

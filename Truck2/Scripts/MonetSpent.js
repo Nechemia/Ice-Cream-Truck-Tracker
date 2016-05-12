@@ -93,7 +93,7 @@
         var name = $(this).closest('tr').find("td:eq(0)").html();
         var date = $(this).closest('tr').find("td:eq(1)").html();
         var amount = $(this).closest('tr').find("td:eq(2)").html();
-        if (name == 'Kliens' || name == 'Credit Card Bill' || name == 'Repairs' || name == 'Licensing Expenses' || name == 'Driver') {
+        if (name == 'Kliens' || name == 'Credit Card Bill' || name == 'Repairs' || name == 'Licensing Expenses' || name == 'Driver' || name == 'Parking' || name == 'Ices') {
             $("#name").val(name);
             $("#other").hide();
         }

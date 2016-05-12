@@ -128,6 +128,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AddStockController.cs" />
+    <Compile Include="Controllers\BottomLineController.cs" />
     <Compile Include="Controllers\DriverController.cs" />
     <Compile Include="Controllers\MoneyMadeController.cs" />
     <Compile Include="Controllers\MoneySpentController.cs" />
@@ -136,6 +137,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AddStockManager.cs" />
+    <Compile Include="Models\BottomLine.cs" />
     <Compile Include="Models\DriverManager.cs" />
     <Compile Include="Models\ExpenseTotal.cs" />
     <Compile Include="Models\MoneyMadeManager.cs" />
@@ -272,7 +274,8 @@
     <Content Include="Views\Sweet\Alert.cshtml" />
     <Content Include="Views\Driver\Driver.cshtml" />
     <Content Include="Views\MoneySpent\MoneySpent.cshtml" />
-    <Content Include="Views\AddStock\AddStock.cshtml" />
+    <Content Include="Views\AddStock\Stock.cshtml" />
+    <Content Include="Views\BottomLine\BottomLine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

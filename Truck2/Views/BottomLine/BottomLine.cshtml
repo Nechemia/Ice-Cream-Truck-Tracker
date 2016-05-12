@@ -1,0 +1,8 @@
+﻿@using Truck2.Models
+@model BottomLine
+
+<div>Total event made Is @string.Format("{0:C}", @Model.EventTotal)</div>
+<div>Total route made Is @string.Format("{0:C}", @Model.RouteTotal)</div>
+<div>Total Expenses So Far Are @string.Format("{0:C}", @Model.TotalExpenses)</div>
+<div>Grand Total Is @string.Format("{0:C}", @Model.FinalAmount)</div> 
+<div>That's @String.Format("{0:0.##}", @Model.ProfitPercentage)% Profit Margin From Total Expenses!</div>

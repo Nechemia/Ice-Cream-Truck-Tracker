@@ -9,29 +9,29 @@
 <table class="table  table-bordered table-hover table-striped expenses" id="expenseTable" style="margin-top: 10px">
 
     <tr>
-        <th>Product</th>
-        <th>Amount</th>
-        <th>Date</th>
-        <th>Average Price</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th class="text-center">Product</th>
+        <th class="text-center">Amount Bought</th>
+        <th class="text-center">Date</th>
+        <th class="text-center">Average Price</th>
+        <th class="text-center">Edit</th>
+        <th class="text-center">Delete</th>
     </tr>
     @foreach (var s in Model.StockList)
     {
         <tr>
-            <td>@s.Product.Name</td>
-            <td>@s.Amount</td>
-            <td>@s.Date</td>
-            <td>@s.Product.AveragePrice</td>
-            <td><button class="btn btn-primary editStock" data-id="@s.Id">Edit</button></td>
-            <td><button class="btn btn-danger deleteStock" data-id="@s.Id">Delete</button></td>
+            <td class="text-center">@s.Product.Name</td>
+            <td class="text-center">@s.Amount</td>
+            <td class="text-center">@s.Date.ToShortDateString()</td>
+            <td class="text-center">@string.Format("{0:C}", @s.Product.AveragePrice)</td>
+            <td class="text-center"><button class="btn btn-primary editStock" data-id="@s.Id">Edit</button></td>
+            <td class="text-center"><button class="btn btn-danger deleteStock" data-id="@s.Id">Delete</button></td>
         </tr>
     }
 
 </table>
-<div class="stock">Total Spent On Ices Is @Model.TotalSpentOnIces</div>
-<div class="stock">Total Spent On Ice Cream Is @Model.TotalSpentOnIceCream</div>
-<div class="stock">WHen All Is Sold Should Bring In @Model.TotalAmountShouldHaveMade</div>
+<div class="stock text-center">Total Spent On Ices Is @string.Format("{0:C}", @Model.TotalSpentOnIces)</div>
+<div class="stock text-center">Total Spent On Ice Cream Is @string.Format("{0:C}", @Model.TotalSpentOnIceCream)</div>
+<div class="stock text-center">When All Is Sold Should Bring In @string.Format("{0:C}", @Model.TotalAmountShouldHaveMade)</div>
 
 
 
@@ -46,9 +46,9 @@
 
 
                 Product:* <select class="form-control expense" id="product">
-                    <option value="Kliens">Soft Ice Cream</option>
-                    <option value="Credit Card Bill">Twin Pops</option>
-                    <option value="Repairs">Luigi Cups</option>
+                              <option value="Soft Ice Cream">Soft Ice Cream</option>
+                              <option value="Twin Pops">Twin Pops</option>
+                              <option value="Luigi Cups">Luigi Cups</option>
                        </select>
                 Amount:* <input type="text" class="form-control expense" placeholder="amount" name="amount" id="amount"><br>
                 Date:* <input type="text" class="form-control expense" placeholder="Date" name="date" id="date"><br>

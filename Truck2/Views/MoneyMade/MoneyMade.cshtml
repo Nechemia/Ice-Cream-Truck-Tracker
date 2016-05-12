@@ -11,68 +11,68 @@
     <table class="table  table-bordered table-hover table-striped events" id="eventTable" style="margin-top: 10px">
 
         <tr>
-            <th>Name</th>
-            <th>Amount Of People</th>
-            <th>Event Type</th>
-            <th>Amount Made</th>
-            <th>Product Type</th>
-            <th>Time Started</th>
-            <th>Time Ended</th>
-            <th>Driver</th>
-            <th>Date</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Amount Of People</th>
+            <th class="text-center">Event Type</th>
+            <th class="text-center">Amount Made</th>
+            <th class="text-center">Product Type</th>
+            <th class="text-center">Time Started</th>
+            <th class="text-center">Time Ended</th>
+            <th class="text-center">Driver</th>
+            <th class="text-center">Date</th>
+            <th class="text-center">Edit</th>
+            <th class="text-center">Delete</th>
         </tr>
         @foreach (var e in Model.Events)
         {
             <tr>
-                <td>@e.Name</td>
-                <td>@e.AmountOfPeople</td>
-                <td>@e.EventType</td>
-                <td>@e.AmountMade</td>
-                <td>@e.ProductType</td>
-                <td>@e.TimeStarted</td>
-                <td>@e.TimeEnded</td>
-                <td>@e.Driver.Name</td>
-                <td>@e.Date</td>
-                <td><button class="btn btn-primary editEvent" data-id="@e.Id">Edit</button></td>
-                <td><button class="btn btn-danger deleteEvent" data-id="@e.Id">Delete</button></td>
+                <td class="text-center">@e.Name</td>
+                <td class="text-center">@e.AmountOfPeople</td>
+                <td class="text-center">@e.EventType</td>
+                <td class="text-center">@string.Format("{0:C}", @e.AmountMade)</td>
+                <td class="text-center">@e.ProductType</td>
+                <td class="text-center">@e.TimeStarted</td>
+                <td class="text-center">@e.TimeEnded</td>
+                <td class="text-center">@e.Driver.Name</td>
+                <td class="text-center">@e.Date.GetValueOrDefault().ToShortDateString()</td>
+                <td class="text-center"><button class="btn btn-primary editEvent" data-id="@e.Id">Edit</button></td>
+                <td class="text-center"><button class="btn btn-danger deleteEvent" data-id="@e.Id">Delete</button></td>
             </tr>
         }
 
     </table>
-    <div class="events" >Total Event Amount Is @Model.EventsAmount</div>
+    <div class="events text-center">Total Event Amount Is @string.Format("{0:C}", @Model.EventsAmount)</div>
 
 
 <table class="table  table-bordered table-hover table-striped routes" id="routeTable" style="margin-top: 10px">
 
     <tr>
         
-        <th>Date</th>
-        <th>Amount Made</th>
-        <th>Driver</th>
-        <th>Time Started</th>
-        <th>Time Ended</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th class="text-center">Date</th>
+        <th class="text-center">Amount Made</th>
+        <th class="text-center">Driver</th>
+        <th class="text-center">Time Started</th>
+        <th class="text-center">Time Ended</th>
+        <th class="text-center">Edit</th>
+        <th class="text-center">Delete</th>
 
     </tr>
     @foreach (var r in Model.Routes)
     {
         <tr>
             
-            <td>@r.Date</td>
-            <td>@r.AmountMade</td>
-            <td>@r.Driver.Name</td>
-            <td>@r.TimeStarted</td>
-            <td>@r.TimeEnded</td>
-            <td><button class="btn btn-primary editRoute" data-id="@r.Id">Edit</button></td>
-            <td><button class="btn btn-danger deleteRoute" data-id="@r.Id">Delete</button></td>
+            <td class="text-center">@r.Date.ToShortDateString()</td>
+            <td class="text-center">@string.Format("{0:C}", @r.AmountMade)</td>
+            <td class="text-center">@r.Driver.Name</td>
+            <td class="text-center">@r.TimeStarted</td>
+            <td class="text-center">@r.TimeEnded</td>
+            <td class="text-center"><button class="btn btn-primary editRoute" data-id="@r.Id">Edit</button></td>
+            <td class="text-center"><button class="btn btn-danger deleteRoute" data-id="@r.Id">Delete</button></td>
         </tr>
     }
 
 </table>
-<div class="routes">Total Route Amount Is  @Model.RoutesAmount</div>
+<div class="routes text-center">Total Route Amount Is  @string.Format("{0:C}", @Model.RoutesAmount)</div>
 
 <div class="modal fade" id="addRouteModal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
